@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/ItemPage.css' %}" rel="stylesheet">
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+	  <br><br>
+        <img src="{% static 'img/nonepicgames.png' %}" alt="" height="230" width="150">
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+		
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src="{% static '' %}img/{{ game.image }}" alt="">
+          <div class="card-body">
+            <h3 class="card-title">{{ game.title }} </h3>
+            <h4>{{ game.developer }} / fecha de salida: {{ game.launch }}</h4>
+            {% load humanize %}
+          {% load i18n %}
+          {% load l10n %}
+            <h4>${{ game.price|intcomma }}</h4>
+            <p class="card-text">{{ game.summary }}</p>
+          
+                
+          </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Requisitos minimos
+          </div>
+          <div class="card-body">          
+			       {{ game.requirements }}
+          </div>
+		  <!--Boton comprar-->
+
+		  <a href="#" class="btn btn-default producto" precio="{{ game.price }}" titulo="{{ game.tittle }}" role="button" >Comprar</a>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+   
+   </div>
+
+  </div>
+{% endblock %}
