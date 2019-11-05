@@ -1,6 +1,10 @@
 from django.db import models
 from django.urls import reverse
 import uuid
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 # Create your models here.
 class Platform(models.Model):
     #Model representing a platform.
@@ -9,6 +13,20 @@ class Platform(models.Model):
 	def __str__(self):
 		return self.name
 
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete= models.CASCADE)
+	bio = models.CharField(max_length=255,blank=True)
+	web = models.URLField(blank=True)
+
+	def __str__(self):
+		return self.user.username
+def Create_User_Profile(sender, instace, created, **kwargs):
+	if created:
+		Profile.objects.created(user=instance)
+
+def Save_user_profile(sender, instance, **kwargs):
+	instance.profile.save()
+		
 class Game(models.Model):
     
 	title = models.CharField(max_length=200)
@@ -70,3 +88,4 @@ class Developer(models.Model):
 	def __str__(self):
 		"""String for representing the Model object."""
 		return self.name
+

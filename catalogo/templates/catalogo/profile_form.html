@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+	
+			<div class="row">
+			
+			  <div class="col-lg-10 col-xl-9 mx-auto">
+				<div class="card card-signin flex-row my-5">
+				  <div class="card-img-left d-none d-md-flex">
+					<div class="col-lg-3">
+					  <br>
+					  <br>
+					  <br>
+						<img src="{% static 'img/nonepicgames.png' %}" alt="" height="430" width="300">
+					  </div>
+				  </div>
+				 
+				  <div class="card-body">
+				  	
+					<form name="contacto_frm" id="contacto_frm" class="form-signin" enctype="application/x-www-form-urlencoded" method="POST">
+						{% csrf_token %}
+						{% for field in form %}
+							<div class="fieldWrapper">
+								{{ field.errors }}
+								{{ field.label_tag }} {{ field }}
+							</div>
+						{% endfor %}
+						<input type="submit" name="submit">
+					</form>
+
+
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  
+
+		   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+			<script src="{% static 'js/validacion.registro.js' %}"></script>	
+		    <script src="{% static 'js/particles.js' %}"></script>
+			<script src="{% static 'js/app.js' %}"></script>	
+	
+</body>
+
+
+{% endblock %}
