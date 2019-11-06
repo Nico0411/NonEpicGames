@@ -17,16 +17,16 @@
 				  </div>
 				 
 				  <div class="card-body">
-				  	
+				  	<h5 class="card-title text-center">Registro</h5>
 					<form name="contacto_frm" id="contacto_frm" class="form-signin" enctype="application/x-www-form-urlencoded" method="POST">
 						{% csrf_token %}
 						{% for field in form %}
-							<div class="fieldWrapper">
-								{{ field.errors }}
-								{{ field.label_tag }} {{ field }}
+							<div class="form-label-group">
+								{{ field }}
+								<label for="{{ field.id }}">{{ field.label_tag }}</label>
 							</div>
 						{% endfor %}
-						<input type="submit" name="submit">
+						<input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">
 					</form>
 
 
