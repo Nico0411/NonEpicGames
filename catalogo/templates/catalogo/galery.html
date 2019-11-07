@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+	
+	<link href="{% static 'css/ItemPage.css' %}" rel="stylesheet">
+	<link href="{% static 'css/galeria.css' %}" rel="stylesheet">
+
+	<div id="particles-js"></div>
+	</br>
+	</br>
+	<div class="container">
+		</br>
+		</br>
+		<div class="card-body">
+				
+			{% for game in games %}
+				<a href="{{ game.get_absolute_url }}" ><img src="{% static '' %}img/{{ game.image }}" alt="{{ game.title }}"></a>
+			{% endfor %}
+		</div>		
+	</div>
+	</br>
+	</br>
+	<script src="{% static 'js/particles.js' %}"></script>
+	<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}

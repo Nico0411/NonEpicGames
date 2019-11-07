@@ -38,6 +38,16 @@ class registerView(CreateView):
 
 class LoginView(TemplateView):
 	template_name = 'catalogo/Login.html'
+
+def galery(request):
+	
+	games = Game.objects.all()
+
+	#Renderiza la plantilla HTML index.html con los datos en las variables contexto
+	context = {
+		'games':games
+	}
+	return	render(request, 'catalogo/galery.html', context)
 		
 		
 

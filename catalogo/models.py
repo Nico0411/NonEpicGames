@@ -15,9 +15,7 @@ class Platform(models.Model):
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete= models.CASCADE)
-	bio = models.CharField(max_length=255,blank=True)
-	web = models.URLField(blank=True)
-
+	
 	def __str__(self):
 		return self.user.username
 def Create_User_Profile(sender, instace, created, **kwargs):

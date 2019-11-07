@@ -15,11 +15,12 @@
 				  <div class="card-body">
 					<h5 class="card-title text-center">Inicio de sesion</h5>
 					<form name="login" class="form_signin" method="POST">
-						<div class="form-label-group">
-					  	{% csrf_token %}
-					  	{{ form.as_p }}
-					  	<input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">
-					  	</div>
+						{% for field in form %}
+							<div class="form-label-group">
+								{{ field }}
+								<label for="{{ field.id }}">{{ field.label_tag }}</label>
+							</div>
+						{% endfor %}
 					</form>
 					
 				  </div>

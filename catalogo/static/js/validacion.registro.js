@@ -4,7 +4,6 @@ function validarForm()
 	var verificar = true;
 	var expRegNombre=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
 	var expRegEmail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
 	var formulario = document.getElementById("contacto_frm");
 	var nombre = document.getElementById("inputNombre");
 	var usuario = document.getElementById("inputUsername");
