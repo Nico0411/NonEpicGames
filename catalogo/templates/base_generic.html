@@ -34,6 +34,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
                 </li>
+				<li class="nav-item">
+            			<a href="#" class="btn btn-default producto" role="button">🛒</a>
+          			</li>
         		</ul>
         		{% endblock %}
       		</div>
@@ -53,5 +56,31 @@
 			<p class="m-0 text-center text-white">Copyright &copy; NonEpicGames 2019</p>
 		</div>
 	</footer>
+	
+	<script src="{% static 'js/minicart.js' %}"></script>
+	<script>
+	  // configuración inicial del carrito 
+	  paypal.minicart.render({
+	  strings:{
+	    button:'Pagar'
+	   ,buttonAlt: "Total"
+	   ,subtotal: 'Total:'
+	   ,empty: 'No hay productos en el carrito'
+	  }
+	  });
+	  // Eventos para agregar productos al carrito
+	  
+	   $('.producto').click(function(e){
+	       e.stopPropagation();
+		    paypal.minicart.cart.add({
+			business: 'antunezjuan7@gmail.com', // Cuenta paypal para recibir el dinero
+			item_name: $(this).attr("titulo"),
+			 amount: $(this).attr("precio"),
+			 currency_code: 'CLP',
+			
+			});
+	   });
+	  
+	</script>
 </body>
 </html>
