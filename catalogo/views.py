@@ -40,7 +40,7 @@ class registerView(CreateView):
 		password = form.cleaned_data.get('password1')
 		user = authenticate(username= user, password=password)
 		login(self.request, user)
-		return redirect('/catalogo/Login/')
+		return redirect('/catalogo/login/')
 	
 
 
