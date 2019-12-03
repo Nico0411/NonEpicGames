@@ -2,7 +2,9 @@
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
 }
-
+.row{
+  height: 100vh;
+}
 .card-signin {
   border: 0;
   border-radius: 1rem;
@@ -37,7 +39,7 @@
 
 input {
  -webkit-appearance: button;
-  color: white;
+  color: black;
   background: #007bff;
   /* border: 2rem; */
   font-size: 80%;

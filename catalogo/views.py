@@ -21,11 +21,10 @@ def index(request):
 	paginator = Paginator(game_list, 6)
 	page = request.GET.get('page')
 	games = paginator.get_page(page)
+	num_visits=request.session.get('num_visits', 0)
+	request.session['num_visits'] = num_visits+1
 	#Renderiza la plantilla HTML index.html con los datos en las variables contexto
-	context = {
-		'games':games
-	}
-	return	render(request, 'index.html', context)
+	return	render(request, 'index.html', context={'games':games,'num_visits':num_visits},)
 
 
 class GameDetailView(generic.DetailView):

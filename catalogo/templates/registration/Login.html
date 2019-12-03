@@ -14,16 +14,10 @@
 				  <div class="card-body">
 					<h5 class="card-title text-center">Inicio de sesion</h5>
 					<form name="login" class="form_signin" method="POST">
-						{% csrf_token %}
-						{% for field in form %}
-							<div class="form-label-group">
-								{{ field }}
-								<label for="{{ field.id }}">{{ field.label_tag }}</label>
-							</div>
-						{% endfor %}
-						<input type="submit" name="submit">
-				</form>
-					
+						 {% csrf_token %}
+						  {{ form.as_p }}
+						  <button type="submit">Login</button>
+					</form>
 				  </div>
 				</div>
 			  </div>
